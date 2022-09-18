@@ -33,3 +33,15 @@
 	Sales Office 	Territory/Dealer/Territory	Store ID	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Product Name	Product Quantity	Total order value
 	Mr. X	UPO	15	Bread 230	100	Bread 340	50	Bread 400	100	Bread 500	10	Bread 700	5	Round bun	6	Cake (2 pc slice)	2	Cake (4 pc slice)	1	Cake (4 pc slice)	0	Cake (6 pc slice)-Tray cup cake	0	Powder Drinks (Orange)	2	Powder Drinks (Mango)	0	10382
 																												
+
+
+# Message Format to send in 21213 && post man 
+
+{
+"version": "1",
+"applicationId": "APP_068563",
+"sourceAddress": "tel:8801855065201",
+"message": "demz Raihan.CTG.15.BDAPPS65TV10999",
+"requestId": "APP_068563",
+"encoding": "0"
+}
