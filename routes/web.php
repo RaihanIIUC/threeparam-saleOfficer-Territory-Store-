@@ -1,5 +1,11 @@
 <?php
 
+use App\View\Components\dashboard\Download;
+use App\View\Components\dashboard\ErrorMessage;
+use App\View\Components\dashboard\ItemList;
+use App\View\Components\dashboard\ResponseLog;
+use App\View\Components\dashboard\Territtory;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +26,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/download', fn() => Blade::renderComponent(new Download()))->middleware(['auth'])->name('download');
+Route::get('/error_msg', fn() => Blade::renderComponent(new ErrorMessage()))->middleware(['auth'])->name('error_msg');
+Route::get('/item', fn() => Blade::renderComponent(new ItemList()))->middleware(['auth'])->name('item');
+Route::get('/response_log', fn() => Blade::renderComponent(new ResponseLog()))->middleware(['auth'])->name('response_log');
+Route::get('/terittories', fn() => Blade::renderComponent(new Territtory()))->middleware(['auth'])->name('terittories');
+
+
 
 require __DIR__.'/auth.php';
