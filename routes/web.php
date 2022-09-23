@@ -33,6 +33,8 @@ Route::get('/item', fn() => Blade::renderComponent(new ItemList()))->middleware(
 Route::get('/response_log', fn() => Blade::renderComponent(new ResponseLog()))->middleware(['auth'])->name('response_log');
 Route::get('/terittories', fn() => Blade::renderComponent(new Territtory()))->middleware(['auth'])->name('terittories');
 
-
+Route::get('user-datatables', function () {
+    return view('components.dashboard.default');
+})->middleware(['auth'])->name('user-datatables');
 
 require __DIR__.'/auth.php';

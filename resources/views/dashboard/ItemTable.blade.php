@@ -4,7 +4,12 @@
         <div class="mb-16  border  overflow-hidden rounded-5xl">
             <div class="overflow-x-auto">
                 <div class="inline-block min-w-full overflow-hidden">
-                    <table class="table-auto w-full">
+
+                    <x-text-input class="block mt-1 w-full" type="text" id='myInput'
+                        onkeyup='searchTable({{json_encode(count($Items))}})' />
+
+
+                    <table class="table-auto w-full" id='myTable'>
 
                         <thead>
                             <tr class="" style=" background: gray; ">
@@ -85,6 +90,51 @@
                 </div>
             </div>
         </div>
+
+
+        {{--  <input id='myInput' onkeyup='searchTable()' type='text'>  --}}
+
+        {{--  <table id='myTable'>
+            <tr>
+                <td>Apple</td>
+                <td>Green</td>
+            </tr>
+            <tr>
+                <td>Grapes</td>
+                <td>Green</td>
+            </tr>
+            <tr>
+                <td>Orange</td>
+                <td>Orange</td>
+            </tr>
+        </table>  --}}
+
+        <script>
+            function searchTable(items) {
+                var input, filter, found, table, tr, td, i, j;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                console.log(items);
+
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td");
+                    for (j = 0; j < td.length; j++) {
+                        if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            found = true;
+                        }
+                    }
+                    if (found) {
+                        tr[i].style.display = "";
+                        found = false;
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+
+        </script>
 
         <div class="flex flex-wrap -mx-4 items-center justify-between">
 
