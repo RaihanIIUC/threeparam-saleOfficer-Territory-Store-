@@ -5,7 +5,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg py-20 px-10">
                 <div class="card">
                     <div class="card-body">
-                        <livewire:item-datatables searchable="id,item_id,name" exportable />
+                        <livewire:error-datatables searchable="sl,sms_text,mobile_number,msg_date" exportable />
                     </div>
                 </div>
             </div>

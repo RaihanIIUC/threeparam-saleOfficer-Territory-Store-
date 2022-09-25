@@ -17,7 +17,7 @@ class ItemList extends Component
      */
     public function __construct()
     {
-        $this->Items = Item::paginate(3);
+       
     }
 
     /**

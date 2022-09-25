@@ -15,7 +15,7 @@ class ErrorMessage extends Component
      */
     public function __construct()
     {
-        $this->error_messages = error_message::paginate(3);
+       
     }
 
     /**
