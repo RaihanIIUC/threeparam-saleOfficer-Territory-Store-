@@ -5,7 +5,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg py-20 px-10">
                 <div class="card">
                     <div class="card-body">
-                        <livewire:response-datatables searchable="timeStamp,address,statusDetail,statusCode"
+                        <livewire:terittories-datatables searchable="id,territory,union_name,thana,dist,division"
                             exportable />
                     </div>
                 </div>
