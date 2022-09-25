@@ -4,6 +4,7 @@ use App\View\Components\dashboard\Download;
 use App\View\Components\dashboard\ErrorMessage;
 use App\View\Components\dashboard\ItemList;
 use App\View\Components\dashboard\ResponseLog;
+use App\View\Components\dashboard\Stores;
 use App\View\Components\dashboard\Territorywithnumber;
 use App\View\Components\dashboard\Territtory;
 use Illuminate\Support\Facades\Blade;
@@ -34,6 +35,7 @@ Route::get('/item', fn() => Blade::renderComponent(new ItemList()))->middleware(
 Route::get('/response_log', fn() => Blade::renderComponent(new ResponseLog()))->middleware(['auth'])->name('response_log');
 Route::get('/terittories', fn() => Blade::renderComponent(new Territtory()))->middleware(['auth'])->name('terittories');
 Route::get('/terittories-with-number', fn() => Blade::renderComponent(new Territorywithnumber()))->middleware(['auth'])->name('terittories-with-number');
+Route::get('/stores', fn() => Blade::renderComponent(new Stores()))->middleware(['auth'])->name('stores');
 
 Route::get('user-datatables', function () {
     return view('components.dashboard.default');

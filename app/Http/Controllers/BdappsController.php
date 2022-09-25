@@ -16,9 +16,13 @@ use App\Models\response_log;
 use Session;
 
 use App\Models\SalesOfficer;
+use App\Models\voucherDetail;
+use App\Models\voucherHead;
+
 use App\Models\Store;
 use App\Models\Territory;
 use App\Models\TerritoryWithNumbers;
+use App\Models\voucher_head;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -154,8 +158,12 @@ class BdappsController extends Controller
 
                     $last_index = sizeof($arr) - 1;
                     $total_value_text = $arr[$second_last_index];
+                    $tv = 0;
                     if ($total_value_text != 'TV') {
                         $error_msg .= 'TV not found' . ',';
+                    }else{
+                       $tv = $arr[$last_index];
+                       Log::info($tv);
                     }
 
                     $items = array();
@@ -194,6 +202,12 @@ class BdappsController extends Controller
 
                     $last_id = $download_msg->id;
                     download__message::where('id', $last_id)->update(['sl' => $last_id]);
+
+
+                 
+                    voucher_head::create(['sl' => $last_id, 'type' => $officer, 'msg_date' => $current_date, 'od_date' => $current_date, 'mobile_number' => $final_address, 'route' => $string[2], 'amount' => $tv]);
+
+
                 }
 
               
