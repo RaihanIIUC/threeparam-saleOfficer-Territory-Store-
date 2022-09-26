@@ -5,8 +5,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg py-20 px-10">
                 <div class="card">
                     <div class="card-body">
-                        <livewire:error-datatables searchable="sl,message_text,error_report,mobile_number,msg_date"
-                            exportable />
+                        <livewire:voucherhead-datatables
+                            searchable="sl,sales_officer,mobile_number,territory,store_id,amount,msg_date" exportable />
                     </div>
                 </div>
             </div>

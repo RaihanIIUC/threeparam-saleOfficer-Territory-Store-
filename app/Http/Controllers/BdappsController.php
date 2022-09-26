@@ -16,13 +16,11 @@ use App\Models\response_log;
 use Session;
 
 use App\Models\SalesOfficer;
-use App\Models\voucherDetail;
-use App\Models\voucherHead;
 
 use App\Models\Store;
 use App\Models\Territory;
 use App\Models\TerritoryWithNumbers;
-use App\Models\voucher_head;
+use App\Models\VoucherHead;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -203,10 +201,17 @@ class BdappsController extends Controller
                     $last_id = $download_msg->id;
                     download__message::where('id', $last_id)->update(['sl' => $last_id]);
 
+                    Log::info('inside');
 
-                 
-                    voucher_head::create(['sl' => $last_id, 'type' => $officer, 'msg_date' => $current_date, 'od_date' => $current_date, 'mobile_number' => $final_address, 'route' => $string[2], 'amount' => $tv]);
+                    VoucherHead::create(['sl' => $last_id, 'sales_officer' => $officer,
+                     'msg_date' => $current_date,
+                      'od_date' => $current_date,
+                       'mobile_number' => $final_address, 
+                       'territory' => $territory,
+                       'store_id'=> $store,
+                       'amount' => $tv]);
 
+                    Log::info('outside');
 
                 }
 

@@ -34,6 +34,9 @@ class ErrorDatatables extends LivewireDatatable
   
             Column::name('sms_text')
                 ->label('Message'),
+                
+                Column::name('error_report')
+                ->label('Error'),
   
             Column::name('mobile_number')
             ->label('Mobile No'),
