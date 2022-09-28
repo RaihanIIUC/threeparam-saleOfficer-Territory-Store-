@@ -24,8 +24,8 @@ class VoucherheadDatatables extends LivewireDatatable
     public function columns()
     {
         return [
-            NumberColumn::name('sl')
-                ->label('SL'),
+            // NumberColumn::name('sl')
+            //     ->label('SL'),
   
             Column::name('sales_officer')
                 ->label('SalesOfficer')
@@ -41,7 +41,10 @@ class VoucherheadDatatables extends LivewireDatatable
             ->label('Store ID')
             ->filterable(),
             Column::name('amount')
-            ->label('Amount')
+            ->label('Amount'),
+
+            DateColumn::name('created_at')->filterable(),
+
             // DateColumn::name('msg_date')
             //     ->label('Order date')
         ];

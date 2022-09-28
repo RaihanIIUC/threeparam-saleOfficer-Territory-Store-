@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AddController;
+use App\Http\Livewire\Additem;
+use App\Http\Livewire\ItemForm;
 use App\View\Components\dashboard\Download;
 use App\View\Components\dashboard\ErrorMessage;
 use App\View\Components\dashboard\ItemList;
@@ -41,8 +44,21 @@ Route::get('/stores', fn() => Blade::renderComponent(new Stores()))->middleware(
 Route::get('/voucher_heads', fn() => Blade::renderComponent(new VoucherHead()))->middleware(['auth'])->name('voucher_heads');
 Route::get('/sales_officer', fn() => Blade::renderComponent(new Salesofficers()))->middleware(['auth'])->name('sales_officer');
 
+
+
+
+//! add related routes 
+// Route::get('/add_items', fn() => Blade::renderComponent(new ItemForm()))->middleware(['auth'])->name('add_items');
+Route::get('/add_items', [AddController::class,'addNewItemPage'])->middleware(['auth'])->name('add_items');
+Route::get('/add_territories', [AddController::class,'addNewTerritoryPage'])->middleware(['auth'])->name('add_territories');
+Route::get('/add_territories_with_num', [AddController::class,'addNewTerritorywithNumberPage'])->middleware(['auth'])->name('add_territories_with_num');
+Route::get('/add_stores', [AddController::class,'addNewStorePage'])->middleware(['auth'])->name('add_stores');
+Route::get('/add_sales_officers', [AddController::class,'addNewSalesOfficersPage'])->middleware(['auth'])->name('add_sales_officers');
+Route::get('/cancel', [AddController::class,'CancelButton'])->middleware(['auth'])->name('cancel');
+
 Route::get('user-datatables', function () {
     return view('components.dashboard.default');
 })->middleware(['auth'])->name('user-datatables');
+
 
 require __DIR__.'/auth.php';

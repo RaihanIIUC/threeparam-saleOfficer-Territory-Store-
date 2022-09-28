@@ -29,7 +29,10 @@ class ItemDatatables extends LivewireDatatable
             Column::name('item_id')
                 ->label('Item ID'),
             Column::name('name')
-            ->label('Item Name')
+            ->label('Item Name'),
+            Column::callback(['id'], function ($id) {
+                return view('components.partials.items-actions', ['id' => $id]);
+            })->unsortable()
         ];
     }
 }
