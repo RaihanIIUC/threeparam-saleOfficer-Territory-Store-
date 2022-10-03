@@ -54,9 +54,11 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://www.bdappsandroid.com/food/public/'),
+    'url' => env('APP_URL', ''),
+    // 'url' => env('APP_URL', 'https://www.bdappsandroid.com/food/public/https://www.bdappsandroid.com/food/public/'),
 
-    'asset_url' => env('ASSET_URL','https://www.bdappsandroid.com/food/public/'),
+    'asset_url' => env('ASSET_URL',''),
+    // 'asset_url' => env('ASSET_URL','https://www.bdappsandroid.com/food/public/'),
 
     /*
     |--------------------------------------------------------------------------

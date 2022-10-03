@@ -16,13 +16,8 @@
     @livewireStyles
 
     <!-- Scripts -->
+    @vite(['resources/js/app.js','resources/css/app.css']);
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
-
-    <!--<link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />-->
-    <!--<link rel="stylesheet" href="{{ mix('css/app.css') }}">-->
-    <!--<script src="{{ mix('js/app.js') }}" defer></script>-->
 
 
 

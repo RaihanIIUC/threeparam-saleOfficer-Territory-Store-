@@ -54,7 +54,8 @@ return [
     |
     */
 
-    'asset_url' => 'https://www.bdappsandroid.com/food/public',
+    'asset_url' => '',
+    // 'asset_url' => 'https://www.bdappsandroid.com/food/public',
 
     /*
     |--------------------------------------------------------------------------

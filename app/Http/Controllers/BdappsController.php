@@ -20,6 +20,7 @@ use App\Models\SalesOfficer;
 use App\Models\Store;
 use App\Models\Territory;
 use App\Models\TerritoryWithNumbers;
+use App\Models\voucher_detail;
 use App\Models\VoucherHead;
 use Exception;
 use Illuminate\Support\Facades\Log;
@@ -201,8 +202,6 @@ class BdappsController extends Controller
                     $last_id = $download_msg->id;
                     download__message::where('id', $last_id)->update(['sl' => $last_id]);
 
-                    Log::info('inside');
-
                     VoucherHead::create(['sl' => $last_id, 'sales_officer' => $officer,
                      'msg_date' => $current_date,
                       'od_date' => $current_date,
@@ -211,8 +210,19 @@ class BdappsController extends Controller
                        'store_id'=> $store,
                        'amount' => $tv]);
 
-                    Log::info('outside');
 
+                       for($i = 0; $i < (sizeof($arr) / 2) - 1 ; $i++){
+                        $item = $arr[2*$i];
+                        $qty = $arr[2 * $i +1];
+                        voucher_detail::create([
+                            'sl'=> $last_id,
+                            'sales_officer' => $officer,
+                            'territory' => $territory,
+                            'qty' => $qty,
+                            'item'=> $item,
+                            'store' => $store
+                        ]);
+                       }
                 }
 
               
@@ -470,7 +480,7 @@ class BdappsController extends Controller
                     if ($error_msg) {
     
                         error_message::where('id', $id)
-                            ->update(['error_report' => $error_msg]);
+                            ->update(['sms_text'=> $request->sms_text,'error_report' => $error_msg]);
                             
 
                             return \redirect()->back()->with('error',$error_msg);
@@ -491,6 +501,19 @@ class BdappsController extends Controller
                             'territory' => $territory,
                             'store_id'=> $store,
                             'amount' => $tv]);
+
+                            for($i = 0; $i < (sizeof($arr) / 2) - 1 ; $i++){
+                                $item = $arr[2*$i];
+                                $qty = $arr[2 * $i +1];
+                                voucher_detail::create([
+                                    'sl'=> $last_id,
+                                    'sales_officer' => $officer,
+                                    'territory' => $territory,
+                                    'qty' => $qty,
+                                    'item'=> $item,
+                                    'store' => $store
+                                ]);
+                                
 
                             return \redirect()->to('error_msg')->with('success','Sms Updated Successfully');
     
