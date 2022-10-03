@@ -41,9 +41,10 @@ class VoucherheadDatatables extends LivewireDatatable
             ->label('Store ID')
             ->filterable(),
             Column::name('amount')
-            ->label('Amount')
-            // DateColumn::name('msg_date')
-            //     ->label('Order date')
+            ->label('Amount'),
+            
+            DateColumn::name('created_at')->filterable(),
+
         ];
     }
 }

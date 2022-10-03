@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AddController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BdappsController;
+use App\Http\Livewire\Additem;
+use App\Http\Livewire\ItemForm;
 use App\View\Components\dashboard\Download;
 use App\View\Components\dashboard\ErrorMessage;
 use App\View\Components\dashboard\ItemList;
@@ -11,7 +16,7 @@ use App\View\Components\dashboard\Territtory;
 use App\View\Components\dashboard\VoucherHead;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\error_message;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,8 +46,42 @@ Route::get('/stores', fn() => Blade::renderComponent(new Stores()))->middleware(
 Route::get('/voucher_heads', fn() => Blade::renderComponent(new VoucherHead()))->middleware(['auth'])->name('voucher_heads');
 Route::get('/sales_officer', fn() => Blade::renderComponent(new Salesofficers()))->middleware(['auth'])->name('sales_officer');
 
+
+
+
+//! add related routes 
+// Route::get('/add_items', fn() => Blade::renderComponent(new ItemForm()))->middleware(['auth'])->name('add_items');
+Route::get('/add_items', [AddController::class,'addNewItemPage'])->middleware(['auth'])->name('add_items');
+Route::get('/add_territories', [AddController::class,'addNewTerritoryPage'])->middleware(['auth'])->name('add_territories');
+Route::get('/add_territories_with_num', [AddController::class,'addNewTerritorywithNumberPage'])->middleware(['auth'])->name('add_territories_with_num');
+Route::get('/add_stores', [AddController::class,'addNewStorePage'])->middleware(['auth'])->name('add_stores');
+Route::get('/add_sales_officers', [AddController::class,'addNewSalesOfficersPage'])->middleware(['auth'])->name('add_sales_officers');
+Route::get('/cancel', [AddController::class,'CancelButton'])->middleware(['auth'])->name('cancel');
+
 Route::get('user-datatables', function () {
     return view('components.dashboard.default');
 })->middleware(['auth'])->name('user-datatables');
+
+
+
+// tables -actions routes 
+// Route::get('error/{error}', function ($error) {
+//     return response()->json($error);
+// })->name('errors.show');
+
+// Route::get('error/{error}/edit', function (error_message $error) {
+//     return response()->json($error);
+// })->name('errors.edit');
+
+// Route::delete('error/{error}', function ($error) {
+//     return response()->json($error);
+// })->name('errors.delete');
+
+
+// ! error message related routes
+Route::get('edit_sms',[BdappsController::class,'edit_error_sms'])->middleware(['auth'])->name('errors');
+Route::get('edit_error_msg/{id}',[AdminController::class,'edit_error_msg_by_id'])->middleware(['auth'])->name('errors.show');
+Route::post('/resend/{id}',[BdappsController::class,'resend_sms'])->middleware(['auth'])->name('errors.resend');
+
 
 require __DIR__.'/auth.php';

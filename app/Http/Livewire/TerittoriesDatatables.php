@@ -34,7 +34,11 @@ class TerittoriesDatatables extends LivewireDatatable
             Column::name('dist')
             ->label('dist'),
             Column::name('division')
-            ->label('division')
+            ->label('division'),
+            
+                Column::callback(['id','territory'], function ($id, $territory) {
+                return view('table-actions', ['id' => $id,'name'=> $territory]);
+            })->unsortable()
         ];
     }
 }

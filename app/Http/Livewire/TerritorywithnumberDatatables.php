@@ -31,7 +31,11 @@ class TerritorywithnumberDatatables extends LivewireDatatable
             Column::name('territory_name')
             ->label('territory_name'),
             Column::name('short_name')
-            ->label('short_name')
+            ->label('short_name'),
+              Column::callback(['id','territory_name'], function ($id, $territory_name) {
+                return view('table-actions', ['id' => $id,'name'=> $territory_name]);
+            })->unsortable()
+            
         ];
     }
 }

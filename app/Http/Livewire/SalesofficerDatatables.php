@@ -31,7 +31,11 @@ class SalesofficerDatatables extends LivewireDatatable
             Column::name('short_name')
             ->label('Short Name'),
             Column::name('full_name')
-            ->label('Full Name')
+            ->label('Full Name'),
+            
+              Column::callback(['id','short_name'], function ($id, $short_name) {
+                return view('table-actions', ['id' => $id,'name'=> $short_name]);
+            })->unsortable()
         ];
     }
 }

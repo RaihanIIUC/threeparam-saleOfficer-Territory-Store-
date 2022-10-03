@@ -29,7 +29,11 @@ class StoreDatatables extends LivewireDatatable
             Column::name('name')
                 ->label('Name'),
             Column::name('code')
-            ->label('Store Id')
+            ->label('Store Id'),
+            
+              Column::callback(['id','name'], function ($id, $name) {
+                return view('table-actions', ['id' => $id,'name'=> $name]);
+            })->unsortable()
         ];
     }
 }

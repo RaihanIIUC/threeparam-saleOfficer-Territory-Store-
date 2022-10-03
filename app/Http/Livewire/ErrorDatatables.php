@@ -42,7 +42,11 @@ class ErrorDatatables extends LivewireDatatable
             ->label('Mobile No'),
   
             DateColumn::name('msg_date')
-                ->label('msg_date')
+                ->label('msg_date'),
+                
+                  Column::callback(['id', 'error_report'], function ($id, $error_report) {
+                return view('error-actions', ['id' => $id, 'name' => $error_report]);
+            })->unsortable()
         ];
     }
 }

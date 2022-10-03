@@ -11,11 +11,23 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!--@vite(['food/resources/css/app.css', 'food/resources/js/app.js'])-->
+       <!--<link rel="stylesheet" href="http://127.0.0.1:5173/food/resources/css/app.css">-->
+       <!--<script src="http://127.0.0.1:5173/food/resources/js/app.js"></script>-->
+     
+  <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--<link rel="stylesheet" href="{{ asset('public/css/app.css') }}">-->
+    <!--<script defer src="{{ asset('js/app.js') }}"></script>-->
+    <!--@vite(['css/app.css', 'js/app.js'])-->
+
+@livewireStyles
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
     </body>
+    @livewireScripts
+
 </html>
