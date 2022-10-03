@@ -13,7 +13,7 @@
                         </div>
                     <div class="card-body">
                         <livewire:voucherhead-datatables
-                            searchable="sl,sales_officer,mobile_number,territory,store_id,amount,msg_date" exportable />
+                            searchable="sl,sales_officer,territory,store_id,amount,msg_date" exportable />
                     </div>
                 </div>
             </div>

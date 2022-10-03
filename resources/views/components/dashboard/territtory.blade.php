@@ -9,7 +9,7 @@
                     <div class=" card-title ">
 
                         <div class="flex  justify-between">
-                           
+
                             <div class="grow h-14 ">
                                 <p>Territory Table
                             </div>

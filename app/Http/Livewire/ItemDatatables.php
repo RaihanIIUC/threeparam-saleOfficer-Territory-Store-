@@ -30,8 +30,8 @@ class ItemDatatables extends LivewireDatatable
                 ->label('Item ID'),
             Column::name('name')
             ->label('Item Name'),
-            Column::callback(['id','name'], function ($id, $name) {
-                return view('table-actions', ['id' => $id,'name'=> $name]);
+            Column::callback(['id'], function ($id) {
+                return view('components.partials.items-actions', ['id' => $id]);
             })->unsortable()
         ];
     }

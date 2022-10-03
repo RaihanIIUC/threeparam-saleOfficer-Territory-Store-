@@ -4,12 +4,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg py-20 px-10">
                 <div class="card">
-                 <x-toaster />
+                    <x-toaster />
 
                     <div class=" card-title ">
 
                         <div class="flex  justify-between">
-                            
+
                             <div class="grow h-14">
                                 <p>Store Table
                             </div>

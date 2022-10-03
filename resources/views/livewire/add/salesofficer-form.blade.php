@@ -55,10 +55,16 @@
                             <p class="text-sm text-coolGray-800 font-semibold">Mobile No</p>
                         </div>
                         <div class="w-full md:flex-1 p-3">
-                            <input wire:model="mobile"
+                            <<<<<<< HEAD <input wire:model="mobile"
                                 class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input"
                                 type="text" placeholder="8801855065201">
-                            @error('mobile') <span class="text-danger">{{ $message }}</span> @enderror
+                                @error('mobile') <span class="text-danger">{{ $message }}</span> @enderror
+                                =======
+                                <input wire:model="mobile_number"
+                                    class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input"
+                                    type="text" placeholder="RAMNA">
+                                @error('mobile_number') <span class="text-danger">{{ $message }}</span> @enderror
+                                >>>>>>> 31a9515a521b87d0b4a32d4bb8d31a2db998a66c
 
                         </div>
                     </div>
@@ -74,9 +80,14 @@
                             <p class="text-sm text-coolGray-800 font-semibold">Sales Officer Id</p>
                         </div>
                         <div class="w-full md:flex-1 p-3">
-                            <input wire:model="short_name"
+                            <input wire:model="short_name" <<<<<<< HEAD
                                 class="w-full uppercase px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input"
                                 type="text" placeholder="RAIHAN">
+                            =======
+                            class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none
+                            focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input"
+                            type="text" placeholder="Thana">
+                            >>>>>>> 31a9515a521b87d0b4a32d4bb8d31a2db998a66c
                             @error('short_name') <span class="text-danger">{{ $message }}</span> @enderror
 
                         </div>
@@ -96,7 +107,10 @@
                         <div class="w-full md:flex-1 p-3">
                             <input wire:model="full_name"
                                 class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input"
-                                type="text" placeholder="Md Raihan">
+                                <<<<<<< HEAD type="text" placeholder="Md Raihan">
+                            =======
+                            type="text" placeholder="District">
+                            >>>>>>> 31a9515a521b87d0b4a32d4bb8d31a2db998a66c
                             @error('full_name') <span class="text-danger">{{ $message }}</span> @enderror
 
                         </div>

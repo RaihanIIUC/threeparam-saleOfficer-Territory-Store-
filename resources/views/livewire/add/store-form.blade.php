@@ -57,7 +57,10 @@
                         <div class="w-full md:flex-1 p-3">
                             <input wire:model="code"
                                 class="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input"
-                                type="text" placeholder="Store Id">
+                                <<<<<<< HEAD type="text" placeholder="Store Id">
+                            =======
+                            type="text" placeholder="RAMNA">
+                            >>>>>>> 31a9515a521b87d0b4a32d4bb8d31a2db998a66c
                             @error('code') <span class="text-danger">{{ $message }}</span> @enderror
 
                         </div>

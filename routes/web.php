@@ -63,7 +63,6 @@ Route::get('user-datatables', function () {
 })->middleware(['auth'])->name('user-datatables');
 
 
-
 // tables -actions routes 
 // Route::get('error/{error}', function ($error) {
 //     return response()->json($error);
